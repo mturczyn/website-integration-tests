@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # Lighthouse reports
 lighthouse-reports/
+
+# Playwright test results
+test-results/
