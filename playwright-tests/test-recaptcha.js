@@ -2,6 +2,9 @@ const { chromium } = require('playwright')
 const fs = require('fs')
 const path = require('path')
 
+const url = process.argv[2] ?? 'https://intrinsic-michal-turczyn.turek1992.workers.dev/en/contact-info'
+console.log(`Running checks for ${url}`)
+
 // Configuration
 const TEST_RESULTS_DIR = './test-results' // Change this to your desired directory
 
@@ -44,9 +47,6 @@ if (!fs.existsSync(TEST_RESULTS_DIR)) {
     // })
 
     console.log('Visiting website...')
-
-    let url =
-        'https://intrinsic-michal-turczyn.turek1992.workers.dev/contact-info'
 
     await page.goto(url, {
         waitUntil: 'networkidle',

@@ -19,7 +19,9 @@ const THRESHOLDS = {
 }
 
 async function runLighthouse() {
-    const url = 'https://intrinsic-michal-turczyn.turek1992.workers.dev/'
+    const url = process.argv[2] ?? 'https://intrinsic-michal-turczyn.turek1992.workers.dev/'
+	console.log(`Running lighthouse checks for ${url}`)
+	
     let chrome
 
     try {
