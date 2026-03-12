@@ -1,0 +1,18 @@
+FROM ghcr.io/puppeteer/puppeteer:latest
+
+WORKDIR /app
+
+# switch to root so npm can install packages
+USER root
+
+# copy package files first
+COPY package*.json ./
+
+# install dependencies
+RUN npm install
+
+# Copy test file
+COPY crawler-tests/test-recaptcha-puppeteer.js ./
+
+# CMD ["node", "crawler-tests/test-recaptcha-puppeteer.js"]
+CMD ["sh", "-c", "node test-recaptcha-puppeteer.js ; tail -f /dev/null"]

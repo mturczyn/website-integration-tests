@@ -1,16 +1,23 @@
 {
-  "name": "playwirhgttests",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "chrome-launcher": "^1.2.1",
-    "lighthouse": "^12.8.2",
-    "playwright": "^1.56.1"
-  }
+    "name": "playwirhgttests",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "puppeteerTest": "node crawler-tests/test-recaptcha-puppeteer.js",
+        "puppeteerTestCloudflare": "npm run puppeteerTest -- https://intrinsic-michal-turczyn.turek1992.workers.dev/en/contact-info",
+        "puppeteerTestCloudflare_100_10": "npm run puppeteerTestCloudflare -- 100 10",
+        "puppeteerTestVercel": "npm run puppeteerTest -- https://about-intrinsic-nextjs.vercel.app/pl/contact-info",
+        "puppeteerTestVercel_100_10": "npm run puppeteerTestVercel -- 100 10",
+        "playwrightTest": "node crawler-tests/test-recaptcha-playwright.js",
+        "lighthouseTest": "node lighthouse-tests/lighthouse-test.mjs"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "chrome-launcher": "^1.2.1",
+        "lighthouse": "^12.8.2",
+        "playwright": "^1.56.1",
+        "puppeteer": "^24.39.0"
+    }
 }
